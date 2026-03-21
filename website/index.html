@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reunion Mission House | リユニオン ミッションハウス - Kishiwada, Osaka</title>
+  <meta name="description" content="A stylish private vacation rental in Kishiwada, Osaka. 30 min from Kansai Airport. Perfect for groups up to 8 guests. Book on Airbnb.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-bg: #FAF8F5;
+      --color-text: #2C2C2C;
+      --color-text-light: #6B6B6B;
+      --color-accent: #8B7355;
+      --color-accent-hover: #6D5A43;
+      --color-white: #FFFFFF;
+      --color-border: #E8E4DF;
+      --color-dark-bg: #1A1A1A;
+      --font-display: 'Cormorant Garamond', 'Noto Sans JP', serif;
+      --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.7;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+    }
+    nav.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,0.06); }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 40px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 400;
+      letter-spacing: 0.08em; color: var(--color-text);
+      text-decoration: none;
+    }
+    .nav-logo span { font-weight: 300; font-size: 0.85rem; margin-left: 8px; color: var(--color-text-light); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 0.82rem; color: var(--color-text-light);
+      text-decoration: none; letter-spacing: 0.06em;
+      font-weight: 400; transition: color 0.3s;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--color-accent); }
+    .lang-switch {
+      display: flex; gap: 4px; margin-left: 16px;
+      border: 1px solid var(--color-border); border-radius: 4px; overflow: hidden;
+    }
+    .lang-btn {
+      padding: 6px 14px; font-size: 0.75rem;
+      border: none; background: transparent; cursor: pointer;
+      font-family: var(--font-body); letter-spacing: 0.06em;
+      color: var(--color-text-light); transition: all 0.3s;
+    }
+    .lang-btn.active {
+      background: var(--color-text); color: var(--color-white);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh; min-height: 700px;
+      position: relative; display: flex;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/01_exterior_front.jpg');
+      background-size: cover; background-position: center 40%;
+      filter: brightness(0.55);
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+    .hero:hover .hero-bg { transform: scale(1.0); }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; color: var(--color-white);
+      padding: 0 24px;
+    }
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 0.85rem; letter-spacing: 0.25em;
+      text-transform: uppercase; font-weight: 300;
+      margin-bottom: 24px; opacity: 0.85;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7vw, 5.8rem);
+      font-weight: 400; letter-spacing: 0.1em;
+      line-height: 1.15; margin-bottom: 24px;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+      padding: 24px 48px;
+      background: rgba(0,0,0,0.15);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-tagline {
+      font-size: 1.05rem; font-weight: 300;
+      letter-spacing: 0.04em; opacity: 0.8;
+      margin-bottom: 48px;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 16px 48px;
+      border: 1px solid rgba(255,255,255,0.6);
+      color: var(--color-white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: all 0.4s;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.08);
+    }
+    .hero-cta:hover {
+      background: var(--color-white);
+      color: var(--color-text);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2; color: var(--color-white);
+      font-size: 0.7rem; letter-spacing: 0.2em;
+      text-transform: uppercase; opacity: 0.6;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .hero-scroll::after {
+      content: ''; width: 1px; height: 40px;
+      background: rgba(255,255,255,0.4);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform-origin: bottom; }
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 120px 40px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--color-accent);
+      margin-bottom: 16px; font-weight: 500;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300; letter-spacing: 0.03em;
+      line-height: 1.3; margin-bottom: 24px;
+    }
+    .section-title-stylish {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300; letter-spacing: 0.08em;
+      line-height: 1.4; margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-desc {
+      font-size: 0.95rem; color: var(--color-text-light);
+      max-width: 600px; line-height: 1.9; font-weight: 300;
+    }
+
+    /* ===== HIGHLIGHTS ===== */
+    .highlights {
+      background: var(--color-white);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .highlight-item {
+      padding: 48px 36px;
+      text-align: center;
+      border-right: 1px solid var(--color-border);
+    }
+    .highlight-item:last-child { border-right: none; }
+    .highlight-icon {
+      margin-bottom: 20px;
+      color: var(--color-accent);
+      display: flex; justify-content: center;
+    }
+    .highlight-icon svg {
+      width: 28px; height: 28px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .highlight-num {
+      font-family: var(--font-display);
+      font-size: 3.2rem; font-weight: 300;
+      color: var(--color-text); margin-bottom: 4px;
+    }
+    .highlight-label {
+      font-size: 0.78rem; color: var(--color-text-light);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    .about-image {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .about-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .about-image:hover img { transform: scale(1.03); }
+    .about-text p {
+      margin-bottom: 20px; font-size: 0.95rem;
+      color: var(--color-text-light); line-height: 2;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery-section { background: var(--color-white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 60px;
+    }
+    .gallery-item {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/2; cursor: pointer;
+    }
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; align-items: flex-end;
+      padding: 24px;
+    }
+    .gallery-item:hover .overlay { opacity: 1; }
+    .overlay-text {
+      color: var(--color-white);
+      font-size: 0.85rem; letter-spacing: 0.06em;
+    }
+
+    /* ===== ROOMS ===== */
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+    .room-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: box-shadow 0.4s;
+    }
+    .room-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+    .room-card img {
+      width: 100%; aspect-ratio: 16/10; object-fit: cover;
+    }
+    .room-info {
+      padding: 28px 32px;
+    }
+    .room-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .room-desc {
+      font-size: 0.85rem; color: var(--color-text-light);
+      line-height: 1.8;
+    }
+
+    /* ===== AMENITIES ===== */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+    .amenity-group h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 400;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .amenity-list { list-style: none; }
+    .amenity-list li {
+      font-size: 0.88rem; color: var(--color-text-light);
+      padding: 8px 0;
+      border-bottom: 1px solid #f0ede9;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .amenity-list li::before {
+      content: ''; width: 4px; height: 4px;
+      background: var(--color-accent);
+      border-radius: 50%; flex-shrink: 0;
+    }
+
+    /* ===== ACCESS ===== */
+    .access-section { background: var(--color-white); }
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 60px;
+    }
+    .access-item {
+      display: flex; gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .access-icon {
+      width: 48px; height: 48px;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .access-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .access-info h4 {
+      font-size: 0.9rem; font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .access-info p {
+      font-size: 0.85rem; color: var(--color-text-light);
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: var(--color-dark-bg);
+      color: var(--color-white);
+      text-align: center;
+      padding: 100px 40px;
+    }
+    .cta-section .section-label { color: rgba(255,255,255,0.5); }
+    .cta-section .section-title {
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+    }
+    .cta-section .section-desc {
+      color: rgba(255,255,255,0.6);
+      margin: 0 auto 48px;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 56px;
+      background: var(--color-white);
+      color: var(--color-dark-bg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: all 0.4s;
+    }
+    .cta-btn:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 60px 40px;
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem; font-weight: 300;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .footer-address {
+      font-size: 0.82rem; color: var(--color-text-light);
+      margin-bottom: 8px;
+    }
+    .footer-copy {
+      font-size: 0.75rem; color: #aaa;
+      margin-top: 24px;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      z-index: 1000; background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute; top: 24px; right: 32px;
+      color: white; font-size: 2rem; cursor: pointer;
+      background: none; border: none; font-family: var(--font-body);
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 28px; height: 20px; position: relative; z-index: 101;
+    }
+    .hamburger span {
+      display: block; width: 100%; height: 1.5px;
+      background: var(--color-text); position: absolute;
+      transition: all 0.3s;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 9px; }
+    .hamburger span:nth-child(3) { top: 18px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+      .highlight-item:nth-child(2) { border-right: none; }
+      .rooms-grid { grid-template-columns: 1fr; }
+      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+      .access-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 80px 24px; }
+      .nav-inner { padding: 0 24px; }
+      .nav-links {
+        display: none; position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: var(--color-bg);
+        flex-direction: column;
+        align-items: center; justify-content: center;
+        gap: 28px;
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: block; }
+      .highlights-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item.wide { grid-column: span 1; }
+      .gallery-item.tall { grid-row: span 1; aspect-ratio: 3/2; }
+      .amenities-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .highlights-grid { grid-template-columns: 1fr; }
+      .highlight-item { border-right: none; border-bottom: 1px solid var(--color-border); }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1; transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        Reunion Mission House
+        <span data-ja="岸和田" data-en="Kishiwada">岸和田</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-ja="コンセプト" data-en="About">コンセプト</a>
+        <a href="#gallery" data-ja="ギャラリー" data-en="Gallery">ギャラリー</a>
+        <a href="#rooms" data-ja="お部屋" data-en="Rooms">お部屋</a>
+        <a href="#amenities" data-ja="設備" data-en="Amenities">設備</a>
+        <a href="#access" data-ja="アクセス" data-en="Access">アクセス</a>
+        <a href="#booking" data-ja="ご予約" data-en="Book">ご予約</a>
+        <div class="lang-switch">
+          <button class="lang-btn active" onclick="setLang('ja')">JP</button>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-sub" data-ja="大阪・岸和田の一棟貸し" data-en="Entire House in Kishiwada, Osaka">大阪・岸和田の一棟貸し</p>
+      <h1 class="hero-title">Reunion<br>Mission House</h1>
+      <p class="hero-tagline" data-ja="関空から30分。最大8名のグループステイに。" data-en="30 min from Kansai Airport. For groups up to 8 guests.">関空から30分。最大8名のグループステイに。</p>
+      <a href="#booking" class="hero-cta" data-ja="空室を確認する" data-en="Check Availability">空室を確認する</a>
+    </div>
+    <div class="hero-scroll" data-ja="スクロール" data-en="Scroll">スクロール</div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights" style="padding: 0;">
+    <div class="highlights-grid">
+      <div class="highlight-item fade-in">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M22 2L2 10l7 2m13-10l-8 18-2-7m10-11l-13 8"/></svg></div>
+        <div class="highlight-num" data-ja="30分" data-en="30 min">30分</div>
+        <div class="highlight-label" data-ja="関西国際空港から" data-en="From Kansai Airport">関西国際空港から</div>
+      </div>
+      <div class="highlight-item fade-in">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="highlight-num" data-ja="最大8名" data-en="Up to 8">最大8名</div>
+        <div class="highlight-label" data-ja="ゲスト定員" data-en="Guests Capacity">ゲスト定員</div>
+      </div>
+      <div class="highlight-item fade-in">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="highlight-num" data-ja="4部屋" data-en="4 Rooms">4部屋</div>
+        <div class="highlight-label" data-ja="プライベートルーム" data-en="Private Rooms">プライベートルーム</div>
+      </div>
+      <div class="highlight-item fade-in">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2M6 21v-2M12 21v-2"/></svg></div>
+        <div class="highlight-num" data-ja="2台分" data-en="2 Cars">2台分</div>
+        <div class="highlight-label" data-ja="無料駐車場" data-en="Free Parking">無料駐車場</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label fade-in" data-ja="コンセプト" data-en="About">コンセプト</div>
+      <h2 class="section-title-stylish fade-in" data-ja="集う、くつろぐ、つながる。" data-en="Gather. Relax. Reconnect.">集う、くつろぐ、つながる。</h2>
+      <div class="about-grid">
+        <div class="about-image fade-in">
+          <img src="images/19_ldk_overview.jpg" alt="Living room">
+        </div>
+        <div class="about-text fade-in">
+          <p data-ja="リユニオン ミッションハウスは、大阪府岸和田市の閑静な住宅街に佇む一棟貸しの宿泊施設です。家族旅行やグループ旅行に最適な、プライベートな空間をご提供します。" data-en="Reunion Mission House is a private whole-house rental nestled in a quiet residential neighborhood of Kishiwada, Osaka. It offers the perfect private space for family trips and group getaways.">リユニオン ミッションハウスは、大阪府岸和田市の閑静な住宅街に佇む一棟貸しの宿泊施設です。家族旅行やグループ旅行に最適な、プライベートな空間をご提供します。</p>
+          <p data-ja="関西国際空港から車でわずか30分。コンビニまで徒歩5分、コストコやららぽーと和泉まで車で約10分と、利便性も抜群です。だんじり祭りで有名な岸和田の文化も体験できます。" data-en="Just 30 minutes by car from Kansai International Airport. A convenience store is a 5-minute walk away, and Costco and LaLaport Izumi are just a 10-minute drive. Experience the culture of Kishiwada, famous for its Danjiri Festival.">関西国際空港から車でわずか30分。コンビニまで徒歩5分、コストコやららぽーと和泉まで車で約10分と、利便性も抜群です。だんじり祭りで有名な岸和田の文化も体験できます。</p>
+          <p data-ja="モダンな内装、充実したキッチン設備、快適なベッドルーム。ここは、あなたのもうひとつの「我が家」です。" data-en="Modern interior, fully-equipped kitchen, and comfortable bedrooms. This is your home away from home.">モダンな内装、充実したキッチン設備、快適なベッドルーム。ここは、あなたのもうひとつの「我が家」です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-inner">
+      <div class="section-label fade-in" data-ja="ギャラリー" data-en="Gallery">ギャラリー</div>
+      <h2 class="section-title fade-in" data-ja="空間を覗く" data-en="Explore the Space">空間を覗く</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item wide fade-in" onclick="openLightbox(this)">
+          <img src="images/05_living_wide.jpg" alt="Living room" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="リビングルーム" data-en="Living Room">リビングルーム</span></div>
+        </div>
+        <div class="gallery-item fade-in" onclick="openLightbox(this)">
+          <img src="images/03_kitchen.jpg" alt="Kitchen" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="キッチン" data-en="Kitchen">キッチン</span></div>
+        </div>
+        <div class="gallery-item fade-in" onclick="openLightbox(this)">
+          <img src="images/06_kitchen_stove.jpg" alt="Cooking" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="調理器具" data-en="Cookware">調理器具</span></div>
+        </div>
+        <div class="gallery-item fade-in" onclick="openLightbox(this)">
+          <img src="images/04_living_tv.jpg" alt="TV area" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="TV エリア" data-en="TV Area">TV エリア</span></div>
+        </div>
+        <div class="gallery-item fade-in" onclick="openLightbox(this)">
+          <img src="images/18_detail_eucalyptus.jpg" alt="Interior detail" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="インテリア" data-en="Interior Detail">インテリア</span></div>
+        </div>
+        <div class="gallery-item fade-in" onclick="openLightbox(this)">
+          <img src="images/13_bathtub.jpg" alt="Bathtub" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="バスルーム" data-en="Bathroom">バスルーム</span></div>
+        </div>
+        <div class="gallery-item wide fade-in" onclick="openLightbox(this)">
+          <img src="images/16_garage.jpg" alt="Garage" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="ガレージ（駐車2台）" data-en="Garage (2 cars)">ガレージ（駐車2台）</span></div>
+        </div>
+        <div class="gallery-item fade-in" onclick="openLightbox(this)">
+          <img src="images/14_toilet.jpg" alt="Restroom" loading="lazy">
+          <div class="overlay"><span class="overlay-text" data-ja="トイレ" data-en="Restroom">トイレ</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section id="rooms">
+    <div class="section-inner">
+      <div class="section-label fade-in" data-ja="お部屋" data-en="Rooms">お部屋</div>
+      <h2 class="section-title fade-in" data-ja="4つのプライベートルーム" data-en="4 Private Rooms">4つのプライベートルーム</h2>
+      <p class="section-desc fade-in" data-ja="各部屋にエアコン完備。最大8名様まで快適にお過ごしいただけます。" data-en="Each room is equipped with air conditioning. Comfortable for up to 8 guests.">各部屋にエアコン完備。最大8名様まで快適にお過ごしいただけます。</p>
+      <div class="rooms-grid">
+        <div class="room-card fade-in">
+          <img src="images/09_bedroom_desk_grey.jpg" alt="Bedroom A" loading="lazy">
+          <div class="room-info">
+            <h3 class="room-name" data-ja="ベッドルーム A — ワークルーム" data-en="Bedroom A — Work Room">ベッドルーム A — ワークルーム</h3>
+            <p class="room-desc" data-ja="セミダブルベッド＋昇降式ワークデスク＋エルゴノミクスチェア。リモートワークにも最適な快適空間。" data-en="Semi-double bed with a height-adjustable desk and ergonomic chair. Perfect for remote work.">セミダブルベッド＋昇降式ワークデスク＋エルゴノミクスチェア。リモートワークにも最適な快適空間。</p>
+          </div>
+        </div>
+        <div class="room-card fade-in">
+          <img src="images/07_bedroom_twin_green.jpg" alt="Bedroom B" loading="lazy">
+          <div class="room-info">
+            <h3 class="room-name" data-ja="ベッドルーム B — ツインルーム" data-en="Bedroom B — Twin Room">ベッドルーム B — ツインルーム</h3>
+            <p class="room-desc" data-ja="シングルベッド2台を設置。ご友人同士やご家族でのご利用に。" data-en="Two single beds. Ideal for friends or family members sharing a room.">シングルベッド2台を設置。ご友人同士やご家族でのご利用に。</p>
+          </div>
+        </div>
+        <div class="room-card fade-in">
+          <img src="images/20_bedroom_orange_bed.jpg" alt="Bedroom C" loading="lazy">
+          <div class="room-info">
+            <h3 class="room-name" data-ja="ベッドルーム C" data-en="Bedroom C">ベッドルーム C</h3>
+            <p class="room-desc" data-ja="ダブルベッドを備えたゆったりとした個室。暖色のインテリアが心地よい空間。" data-en="A spacious private room with a double bed. Warm-toned interiors create a cozy atmosphere.">ダブルベッドを備えたゆったりとした個室。暖色のインテリアが心地よい空間。</p>
+          </div>
+        </div>
+        <div class="room-card fade-in">
+          <img src="images/15_1f_room.jpg" alt="1F Room" loading="lazy">
+          <div class="room-info">
+            <h3 class="room-name" data-ja="1Fルーム" data-en="Ground Floor Room">1Fルーム</h3>
+            <p class="room-desc" data-ja="1階の広々としたフリースペース。ソファ付きのくつろぎエリアとしてもご利用いただけます。" data-en="A spacious ground-floor free space. Can be used as a relaxation area with sofa.">1階の広々としたフリースペース。ソファ付きのくつろぎエリアとしてもご利用いただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="gallery-section" id="amenities">
+    <div class="section-inner">
+      <div class="section-label fade-in" data-ja="設備・アメニティ" data-en="Amenities">設備・アメニティ</div>
+      <h2 class="section-title fade-in" data-ja="充実の設備" data-en="Everything You Need">充実の設備</h2>
+      <div class="amenities-grid">
+        <div class="amenity-group fade-in">
+          <h3 data-ja="キッチン" data-en="Kitchen">キッチン</h3>
+          <ul class="amenity-list">
+            <li data-ja="ガスコンロ（2口）" data-en="Gas stove (2 burners)">ガスコンロ（2口）</li>
+            <li data-ja="冷蔵庫" data-en="Refrigerator">冷蔵庫</li>
+            <li data-ja="電子レンジ" data-en="Microwave">電子レンジ</li>
+            <li data-ja="炊飯器" data-en="Rice cooker">炊飯器</li>
+            <li data-ja="調理器具・食器一式" data-en="Cookware & tableware">調理器具・食器一式</li>
+          </ul>
+        </div>
+        <div class="amenity-group fade-in">
+          <h3 data-ja="バス・ランドリー" data-en="Bath & Laundry">バス・ランドリー</h3>
+          <ul class="amenity-list">
+            <li data-ja="バスタブ付きバスルーム" data-en="Bathroom with bathtub">バスタブ付きバスルーム</li>
+            <li data-ja="シャワールーム" data-en="Shower room">シャワールーム</li>
+            <li data-ja="ドラム式洗濯乾燥機" data-en="Washer/dryer (drum type)">ドラム式洗濯乾燥機</li>
+            <li data-ja="シャンプー・ボディソープ" data-en="Shampoo & body soap">シャンプー・ボディソープ</li>
+            <li data-ja="タオル完備" data-en="Towels provided">タオル完備</li>
+          </ul>
+        </div>
+        <div class="amenity-group fade-in">
+          <h3 data-ja="その他" data-en="Other">その他</h3>
+          <ul class="amenity-list">
+            <li data-ja="Wi-Fi完備" data-en="Free Wi-Fi">Wi-Fi完備</li>
+            <li data-ja="大型テレビ" data-en="Large TV">大型テレビ</li>
+            <li data-ja="全室エアコン" data-en="A/C in all rooms">全室エアコン</li>
+            <li data-ja="スマートロック" data-en="Smart lock (self check-in)">スマートロック</li>
+            <li data-ja="無料駐車場（2台）" data-en="Free parking (2 cars)">無料駐車場（2台）</li>
+            <li data-ja="ハンガー・物干し" data-en="Hangers & drying rack">ハンガー・物干し</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="access-section" id="access">
+    <div class="section-inner">
+      <div class="section-label fade-in" data-ja="アクセス" data-en="Access">アクセス</div>
+      <h2 class="section-title fade-in" data-ja="便利な立地" data-en="Convenient Location">便利な立地</h2>
+      <p class="section-desc fade-in" data-ja="閑静な住宅街でありながら、空港や商業施設へのアクセスも抜群です。" data-en="A quiet residential neighborhood with excellent access to the airport and shopping facilities.">閑静な住宅街でありながら、空港や商業施設へのアクセスも抜群です。</p>
+      <div class="access-grid">
+        <div>
+          <div class="access-item fade-in">
+            <div class="access-icon"><svg viewBox="0 0 24 24"><path d="M22 2L2 10l7 2m13-10l-8 18-2-7m10-11l-13 8"/></svg></div>
+            <div class="access-info">
+              <h4 data-ja="関西国際空港" data-en="Kansai International Airport">関西国際空港</h4>
+              <p data-ja="車で約30分" data-en="Approx. 30 min by car">車で約30分</p>
+            </div>
+          </div>
+          <div class="access-item fade-in">
+            <div class="access-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM9 3v18M21 9H3M21 15H3"/></svg></div>
+            <div class="access-info">
+              <h4 data-ja="コンビニ" data-en="Convenience Store">コンビニ</h4>
+              <p data-ja="徒歩約5分" data-en="Approx. 5 min walk">徒歩約5分</p>
+            </div>
+          </div>
+          <div class="access-item fade-in">
+            <div class="access-icon"><svg viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14M9 21V11h6v10"/></svg></div>
+            <div class="access-info">
+              <h4 data-ja="岸和田城・だんじり会館" data-en="Kishiwada Castle & Danjiri Museum">岸和田城・だんじり会館</h4>
+              <p data-ja="車で約10分" data-en="Approx. 10 min by car">車で約10分</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="access-item fade-in">
+            <div class="access-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg></div>
+            <div class="access-info">
+              <h4 data-ja="ららぽーと和泉" data-en="LaLaport Izumi">ららぽーと和泉</h4>
+              <p data-ja="車で約10分" data-en="Approx. 10 min by car">車で約10分</p>
+            </div>
+          </div>
+          <div class="access-item fade-in">
+            <div class="access-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+            <div class="access-info">
+              <h4 data-ja="コストコ和泉倉庫店" data-en="Costco Izumi">コストコ和泉倉庫店</h4>
+              <p data-ja="車で約10分" data-en="Approx. 10 min by car">車で約10分</p>
+            </div>
+          </div>
+          <div class="access-item fade-in">
+            <div class="access-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="access-info">
+              <h4 data-ja="ワタワン" data-en="Wata One">ワタワン</h4>
+              <p data-ja="車で約5分" data-en="Approx. 5 min by car">車で約5分</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING CTA -->
+  <section class="cta-section" id="booking">
+    <div class="section-label fade-in" data-ja="ご予約" data-en="Booking">ご予約</div>
+    <h2 class="section-title fade-in" data-ja="Airbnbで予約する" data-en="Book on Airbnb">Airbnbで予約する</h2>
+    <p class="section-desc fade-in" data-ja="チェックイン 15:00 ／ チェックアウト 10:00&#10;一棟貸し切りで、最大8名様までご利用いただけます。" data-en="Check-in 3:00 PM / Check-out 10:00 AM&#10;Entire house rental for up to 8 guests.">チェックイン 15:00 ／ チェックアウト 10:00<br>一棟貸し切りで、最大8名様までご利用いただけます。</p>
+    <a href="#" class="cta-btn" id="airbnbLink" data-ja="Airbnbで空室を確認" data-en="Check Availability on Airbnb">Airbnbで空室を確認</a>
+    <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.4;" data-ja="※ Airbnbリスティング準備中" data-en="* Airbnb listing coming soon">※ Airbnbリスティング準備中</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Reunion Mission House</div>
+    <p class="footer-address" data-ja="〒596-0816 大阪府岸和田市尾生町4-5-2" data-en="4-5-2 Obaecho, Kishiwada, Osaka 596-0816, Japan">〒596-0816 大阪府岸和田市尾生町4-5-2</p>
+    <p class="footer-copy">&copy; 2026 Reunion Mission House. All rights reserved.</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    // Language switching
+    let currentLang = 'ja';
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim() === (lang === 'ja' ? 'JP' : 'EN'));
+      });
+      document.querySelectorAll('[data-ja][data-en]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = text;
+        } else {
+          el.innerHTML = text;
+        }
+      });
+      document.documentElement.lang = lang;
+    }
+
+    // Scroll nav effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Lightbox
+    function openLightbox(item) {
+      const img = item.querySelector('img');
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
