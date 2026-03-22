@@ -98,46 +98,83 @@
       position: absolute; inset: 0;
       background-image: url('images/01_exterior_front.jpg');
       background-size: cover; background-position: center 40%;
-      filter: brightness(0.45);
-      transform: scale(1.05);
-      transition: transform 10s ease;
+      transform: scale(1.08);
+      transition: transform 12s ease;
     }
     .hero:hover .hero-bg { transform: scale(1.0); }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0.2) 40%,
+        rgba(0,0,0,0.55) 100%
+      );
+    }
     .hero-content {
       position: relative; z-index: 2;
       text-align: center; color: var(--color-white);
       padding: 0 24px;
+      max-width: 800px;
     }
-    .hero-sub {
+    .hero-tag {
       font-family: var(--font-body);
-      font-size: 0.78rem; letter-spacing: 0.3em;
-      font-weight: 300;
-      margin-bottom: 32px; opacity: 0.75;
+      font-size: 0.72rem; letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,0.7);
     }
     .hero-title {
       font-family: var(--font-en);
-      font-size: clamp(3rem, 6.5vw, 5.2rem);
-      font-weight: 300; letter-spacing: 0.15em;
-      line-height: 1.2; margin-bottom: 32px;
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      font-weight: 600; letter-spacing: 0.02em;
+      line-height: 1.15; margin-bottom: 20px;
     }
-    .hero-tagline {
+    .hero-title em {
+      font-style: italic;
+      font-weight: 500;
+    }
+    .hero-desc {
       font-family: var(--font-body);
-      font-size: 0.9rem; font-weight: 300;
-      letter-spacing: 0.08em; opacity: 0.7;
-      margin-bottom: 56px;
+      font-size: 0.88rem; font-weight: 300;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.9;
+      margin-bottom: 48px;
+      max-width: 520px;
+      margin-left: auto; margin-right: auto;
     }
-    .hero-cta {
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
       display: inline-block;
-      padding: 16px 52px;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: var(--color-white);
+      padding: 14px 36px;
       text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
       font-weight: 400;
       transition: all 0.4s;
+      font-family: var(--font-body);
     }
-    .hero-cta:hover {
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: 1px solid var(--color-accent);
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--color-white);
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+    .btn-outline:hover {
       background: var(--color-white);
       color: var(--color-text);
     }
@@ -583,13 +620,17 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-sub" data-ja="大阪・岸和田の一棟貸し" data-en="Entire House in Kishiwada, Osaka">大阪・岸和田の一棟貸し</p>
-      <h1 class="hero-title">Reunion<br>Mission House</h1>
-      <p class="hero-tagline" data-ja="関空から30分。最大8名のグループステイに。" data-en="30 min from Kansai Airport. For groups up to 8 guests.">関空から30分。最大8名のグループステイに。</p>
-      <a href="#booking" class="hero-cta" data-ja="空室を確認する" data-en="Check Availability">空室を確認する</a>
+      <p class="hero-tag" data-ja="大阪・岸和田" data-en="Kishiwada, Osaka">大阪・岸和田</p>
+      <h1 class="hero-title" data-ja="集う場所、<br><em>くつろぎの時間</em>" data-en="Experience the<br><em>Reunion House</em>">集う場所、<br><em>くつろぎの時間</em></h1>
+      <p class="hero-desc" data-ja="関西国際空港から30分。最大8名まで泊まれる一棟貸しの宿で、家族や仲間との特別なひとときを。" data-en="A private whole-house rental, 30 minutes from Kansai Airport. The perfect retreat for families and groups of up to 8 guests.">関西国際空港から30分。最大8名まで泊まれる一棟貸しの宿で、家族や仲間との特別なひとときを。</p>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn btn-primary" data-ja="空室を確認する" data-en="Check Availability">空室を確認する</a>
+        <a href="#about" class="btn btn-outline" data-ja="詳しく見る" data-en="Learn More">詳しく見る</a>
+      </div>
     </div>
-    <div class="hero-scroll" data-ja="スクロール" data-en="Scroll">スクロール</div>
+    <div class="hero-scroll" data-ja="Scroll" data-en="Scroll">Scroll</div>
   </section>
 
   <!-- HIGHLIGHTS -->
